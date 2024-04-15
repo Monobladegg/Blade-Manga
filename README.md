@@ -37,7 +37,7 @@
 <hr>
 
 <div align="left">
-  ![meow-double's Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=meow-double&theme=tokyonight&show_icons=true&hide_border=false&layout=compact)
+  ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=anuraghazra&langs_count=8)
 </div>
 
 <hr>
