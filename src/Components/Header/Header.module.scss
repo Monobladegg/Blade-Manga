@@ -1,0 +1,51 @@
+@import '../../Styles/index.module.scss';
+
+.main {
+  height: 100px;
+  flex-direction: row;
+  background-color: white;
+  margin-top: 15px;
+  margin-bottom: 7px;
+  display: flex;
+  justify-content: space-between;
+
+  @include main();
+
+  .left {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      border-radius: 5px;
+      height: 90px;
+      margin-left: 5px;
+      margin-top: -5px;
+    }
+
+    .blockTitle {
+      margin-left: 15px;
+
+      .title {
+        font-weight: 700;
+        font-size: 28px;
+        margin-bottom: -2px;
+        text-transform: uppercase;
+      }
+
+      .subtitle {
+        font-weight: 600;
+        font-size: 22px;
+        width: 300px;
+        line-height: 23px;
+      }
+    }
+  }
+
+  .right {
+    margin: 10px 10px 5px 0px;
+
+    .icon {
+      margin-left: 5px;
+    }
+  }
+}

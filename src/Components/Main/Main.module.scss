@@ -1,0 +1,8 @@
+@import '../../Styles/index.module.scss';
+
+.main {
+  height: 1000px;
+  border-radius: 10px;
+  @include main();
+  margin-bottom: 10px;
+}
