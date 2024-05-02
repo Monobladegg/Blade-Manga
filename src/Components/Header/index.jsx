@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <main className={s.main}>
       <div className={s.left}>
-        <img src="src/assets/img/logo.png" className={s.logo} />
+        <img src='../../public/img/logo.png' className={s.logo} alt="logo" />
         <div className={s.blockTitle}>
           <h1 className={s.title}>Blade-Manga!</h1>
           <h2 className={s.subtitle}>
