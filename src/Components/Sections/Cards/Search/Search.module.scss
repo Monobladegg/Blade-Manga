@@ -2,7 +2,8 @@
 
 .search {
   display: flex;
-  margin: 10px 10px 0 auto;    
+  margin-block: 15px;
+  margin-inline: auto;
   .searchInput {
     border: 1px solid rgb(179, 179, 179);  
     border-radius: 5px;  

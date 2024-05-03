@@ -2,12 +2,12 @@
 
 
 .main {
-  height: 1000px;
   border-radius: 10px;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
   @include main();
   .cards {
-    display: flex;
-    position: absolute;
+    margin-bottom: 30px;
   }
 }

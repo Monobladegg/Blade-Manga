@@ -12,7 +12,7 @@ export default function Main() {
       <main className={s.main}>
         <Search />
         <div className={s.cards}>
-        <Cards/>
+          <Cards/>
         </div>
       </main>
   );
