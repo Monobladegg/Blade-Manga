@@ -5,14 +5,17 @@
   height: 400px;
   display: flex;
   justify-content: center;
-  padding-block: 10px;
+  padding-block: 20px;
   .card {
     display: flex;
-    width: 90%;
+    width: 990px;
     border-radius: 15px;
+    height: 360px;
     background-color: $bgColor3;
+    align-items: center;
     .cardImg {
       width: 350px;
+      height: 350px;
       mix-blend-mode: multiply;
     }
     .cardSubSubtitles {

@@ -1,21 +1,28 @@
 import React from "react";
 import { AppContext } from "../../../App";
+import HomePageSkeleton from "../../Skeleton/HomePageSkeleton";
 
 import s from "./Cards.module.scss";
 
 import Card from "./Card";
 
 export default function Main() {
-  const { filtredItems } = React.useContext(AppContext);
+  const { filtredItems, isLoading } = React.useContext(AppContext);
 
   return (
       <main className={s.main}>
-        {filtredItems.map((item) => (
-          <Card
-            key={item.id}
-            {...item}
-          />
-        ))}
+        {isLoading ? (
+          <>
+            <HomePageSkeleton />
+          </>
+        ) : (
+          filtredItems.map((item) => (
+            <Card
+              key={item.id}
+              {...item}
+            />
+          ))
+        )}
       </main>
   );
 }

@@ -23,17 +23,22 @@ export const AppContext = React.createContext({});
 export default function App() {
   const [items, setItems] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState("");
+  const [isLoading, setIsLoading] = React.useState(true);
 
 
-
+  React.useEffect(() => {
+    console.log("isLoading", isLoading);
+  }, [isLoading])
 
   React.useEffect(() => {
     async function fetchData() {
       try {
+        setIsLoading(true);
         const { data } = await axios.get(
           "https://662398043e17a3ac846fa3bf.mockapi.io/items"
         );
         setItems(data);
+        setIsLoading(false);
         console.log(data);
       } catch (e) {
         console.log(e);
@@ -53,7 +58,7 @@ export default function App() {
 
   return (
     <AppContext.Provider
-      value={{ items, searchValue, setSearchValue, filtredItems }}
+      value={{ items, searchValue, setSearchValue, filtredItems, isLoading }}
     >
 
 
