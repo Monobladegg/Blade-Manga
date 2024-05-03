@@ -10,6 +10,7 @@ import Favorites from "./pages/Favorites";
 import NotFoundPage from "./pages/NotFoundPage";
 import Profile from "./pages/Profile";
 import AuthPage from "./pages/Auth";
+import CardPage from "./pages/CardPage";
 
 
 
@@ -63,6 +64,18 @@ export default function App() {
         <Route path="/Monobladegg/favorites" element={<Favorites />} />
         <Route path="/Monobladegg/profile" element={<Profile />} />
         <Route path="/Monobladegg/auth" element={<AuthPage />} />
+
+        {/* <Route path="/Monobladegg/cart1" element={<CartPage1 />} />
+        <Route path="/Monobladegg/cart2" element={<CartPage2 />} />
+        <Route path="/Monobladegg/cart3" element={<CartPage3 />} />
+        <Route path="/Monobladegg/cart4" element={<CartPage4 />} />
+        <Route path="/Monobladegg/cart5" element={<CartPage5 />} />
+        <Route path="/Monobladegg/cart6" element={<CartPage6 />} />
+        <Route path="/Monobladegg/cart7" element={<CartPage7 />} />
+        <Route path="/Monobladegg/cart8" element={<CartPage8 />} /> */}
+
+        <Route path="/Monobladegg/:cartId" element={<CardPage />} />
+
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
 

@@ -2,7 +2,7 @@
 
 .card {
   width: 200px;
-  height: 260px;
+  height: 270px;
   display: flex;
   flex-direction: column;
   background-color: $bgColor3;
@@ -30,4 +30,9 @@
   &:hover {
     scale: 1.05;
   }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

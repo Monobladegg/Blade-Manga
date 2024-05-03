@@ -34,7 +34,7 @@ const SignUp = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           type="text"
-          placeholder="Email"
+          placeholder="Е-мейл"
         />
         <input
           value={password}
@@ -46,7 +46,7 @@ const SignUp = () => {
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           type="password"
-          placeholder="Подтвердите пароль"
+          placeholder="Підтвердіть пароль"
         />
         <button>Создать</button>
       </form>

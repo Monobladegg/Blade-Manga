@@ -6,8 +6,8 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "public": "public",
-      "src": "src",
+      "public": "./public",
+      "src": "./src",
     }
   },
   base: '/Monobladegg',

@@ -1,0 +1,58 @@
+@import '/public/assets/Styles/index.module.scss';
+
+.main {
+  @include main();
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  padding-block: 10px;
+  .card {
+    display: flex;
+    width: 90%;
+    border-radius: 15px;
+    background-color: $bgColor3;
+    .cardImg {
+      width: 350px;
+      mix-blend-mode: multiply;
+    }
+    .cardSubSubtitles {
+      margin-top: 0px;
+    }
+    .cardTitles {
+      text-align: center;
+      margin: auto;
+      margin-top: calc(auto - 20px);
+      .button {
+        width: 250px;
+        height: 50px;
+        border-radius: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        background-color: rgb(71, 248, 71);
+        border: 1px solid white;
+        box-shadow: 0px 0px 7px white;
+        margin-top: 30px;
+        transition: background-color 0.13s ease-in-out;
+        &:hover {
+          background-color: rgb(150, 252, 150);
+        }
+      }
+      .cardTitle {
+        font-size: 48px;
+        font-weight: 500;
+      }
+      .cardSubtitles {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .cardSubtitle {
+          margin-right: 10px;
+          font-size: 24px;
+        }
+        .cardPrice {
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}
