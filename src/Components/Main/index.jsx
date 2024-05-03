@@ -1,19 +1,19 @@
-import Card from "../Sections/Card";
-import s from "./Main.module.scss";
 import React from "react";
 import { AppContext } from "../../App";
 
+import Cards from "../Sections/Cards";
+import Search from "../Sections/Cards/Search";
+
+import s from "./Main.module.scss";
+
 export default function Main() {
-  const { items } = React.useContext(AppContext);
 
   return (
       <main className={s.main}>
-        {items.map((item) => (
-          <Card
-            key={item.id}
-            {...item}
-          />
-        ))}
+        <Search />
+        <div className={s.cards}>
+        <Cards/>
+        </div>
       </main>
   );
 }

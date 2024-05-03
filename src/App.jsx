@@ -1,33 +1,39 @@
 import React from "react";
-import "assets/Styles/App.scss";
+import "../public/assets/Styles/App.scss";
 import Home from "./pages/Home";
+import axios from "axios";
 
-export const AppContext = React.createContext("");
+export const AppContext = React.createContext({});
 
 export default function App() {
-  
-  const items = [
-    {
-      id: "1",
-      title: "Берсерк",
-      subtitle: "1 том",
-      price: 229,
-      img: "assets/Img/1.jpg",
-    },
-    {
-      id: "2",
-      title: "Магічна битва",
-      subtitle: "1 том",
-      price: 279,
-      img: "assets/Img/2.jpg",
-    },
-  ];
+  const [items, setItems] = React.useState([]);
+  const [searchValue, setSearchValue] = React.useState("");
 
-  console.log(items);
+  React.useEffect(() => {
+    async function fetchData() {
+      try {
+        const { data } = await axios.get(
+          "https://662398043e17a3ac846fa3bf.mockapi.io/items"
+        );
+        setItems(data);
+        console.log(data);
+      } catch (e) {
+        console.log(e);
+      }
+    }
 
+    fetchData();
+  }, []);
+
+  const filtredItems = 
+    items.filter((item) => {
+      return item.title.toLowerCase().includes(searchValue.toLowerCase());
+    });
 
   return (
-    <AppContext.Provider value={{items}}>
+    <AppContext.Provider
+      value={{ items, searchValue, setSearchValue, filtredItems }}
+    >
       <Home />
     </AppContext.Provider>
   );
