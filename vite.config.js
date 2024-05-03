@@ -7,6 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "public": "public",
+      "src": "src",
     }
   },
   base: '/Monobladegg',

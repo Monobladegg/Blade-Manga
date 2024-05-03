@@ -1,8 +1,7 @@
 import React from "react";
-import { AppContext } from "../../App";
 
-import Cards from "../Sections/Cards";
-import Search from "../Sections/Cards/Search";
+import Cards from "../../Sections/Cards";
+import Search from "../../Sections/Cards/Search";
 
 import s from "./Main.module.scss";
 

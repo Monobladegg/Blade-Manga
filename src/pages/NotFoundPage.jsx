@@ -1,13 +1,13 @@
 import React from "react";
 import Header from "../Components/Header";
-import Main from "../Components/Home/Main";
+import NotFoundPage from "/src/Components/NotFoundPage";
 
 export default function Home() {
 
   return (
     <>
       <Header />
-      <Main />
+      <NotFoundPage />
     </>
   );
 }

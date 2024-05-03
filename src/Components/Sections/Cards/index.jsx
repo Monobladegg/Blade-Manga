@@ -6,7 +6,7 @@ import s from "./Cards.module.scss";
 import Card from "./Card";
 
 export default function Main() {
-  const { items, filtredItems } = React.useContext(AppContext);
+  const { filtredItems } = React.useContext(AppContext);
 
   return (
       <main className={s.main}>

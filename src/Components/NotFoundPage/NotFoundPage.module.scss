@@ -1,0 +1,10 @@
+@import '/public/assets/Styles/index.module.scss';
+
+.main {
+  @include main();
+  height: 500px;
+  .title {
+    text-align: center;
+    width: 100%;
+  }
+}

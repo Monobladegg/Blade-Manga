@@ -4,6 +4,9 @@
     "paths": {
       "Monobladegg/public/*": [
         "Monobladegg/public/*"
+      ],
+      "Monobladegg/src/*": [
+        "Monobladegg/src/*"
       ]
     }
   }

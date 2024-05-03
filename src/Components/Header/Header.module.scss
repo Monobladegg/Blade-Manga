@@ -1,7 +1,7 @@
 @import '/public/assets/Styles/index.module.scss';
 
 .main {
-  height: 100px;
+  max-height: 100px;
   flex-direction: row;
   background-color: white;
   margin-top: 15px;
@@ -17,9 +17,8 @@
 
     .logo {
       border-radius: 5px;
-      height: 90px;
-      margin-left: 5px;
-      margin-top: -5px;
+      height: 105px;
+      box-shadow: 0 0 8px $bgColor2;
     }
 
     .blockTitle {

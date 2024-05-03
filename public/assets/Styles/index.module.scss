@@ -10,12 +10,16 @@
 @mixin main() {
   display: flex;
   max-width: 1100px;
+  height: 100%;
   border-radius: 10px;
   background-color: white;
   margin-inline: auto;
   box-shadow: 0 0px 25px $bgColor2;
+  @media screen and (max-width: 1110px) {
+    margin-inline: 10px;
+  }
 }
 
-$bgColor1: #dffffb;
-$bgColor2: #52fcee;
-$bgColor3: #a1f1ff;
+$bgColor1: #ffdcc5;
+$bgColor2: #ffb445;
+$bgColor3: #ffc187;
