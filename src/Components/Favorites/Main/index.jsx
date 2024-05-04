@@ -31,7 +31,7 @@ export default function Favorites() {
           ))}
         </main>
       ) : (
-        <h1 className={s.h1}>Закладок пока-что нет</h1>
+        <h1 className={s.h1}>Закладок поки-що не розмістили</h1>
       )}
     </main>
   );

@@ -6,7 +6,7 @@ import s from "./Main.module.scss";
 
 export default function Main() {
 
-  const { authUser } = React.useContext(AppContext);
+  const { AuthUser } = React.useContext(AppContext);
 
   return (
       <main className={s.main}>
@@ -16,7 +16,7 @@ export default function Main() {
         <Link to="/Monobladegg/signIn">
           <h3 className={`${s.authLink}`}>Перейти на сторінку входу</h3>
         </Link>
-        {authUser ? <p>Ваш аккаунт: {authUser.email}</p> : <h1 className={s.text}>У вас пока-что нету аккаута</h1>}
+        {AuthUser ? <h1 className={s.text}>Ваша пошта: {AuthUser.email}</h1> : <h1 className={s.text}>Ви не авторизовані</h1>}
       </main>
   );
 }

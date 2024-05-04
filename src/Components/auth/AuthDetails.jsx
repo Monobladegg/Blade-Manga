@@ -1,9 +1,10 @@
 import { onAuthStateChanged } from "firebase/auth";
 import React from "react";
 import { auth } from "../../firebase";
+import { AppContext } from "../../App";
 
 function AuthDetails() {
-  const [AuthUser, setAuthUser] = React.useState(null);
+  const { authUser, setAuthUser } = React.useContext(AppContext);
   React.useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
