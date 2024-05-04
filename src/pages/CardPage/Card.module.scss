@@ -2,7 +2,7 @@
 
 .main {
   @include main();
-  height: 400px;
+  height: 460px;
   display: flex;
   justify-content: center;
   padding-block: 20px;
@@ -10,34 +10,63 @@
     display: flex;
     width: 990px;
     border-radius: 15px;
-    height: 360px;
+    height: 420px;
     background-color: $bgColor3;
     align-items: center;
     .cardImg {
-      width: 350px;
-      height: 350px;
+      width: 400px;
+      height: 400px;
       mix-blend-mode: multiply;
+    }
+    .cardSubtitles {
+      display: flex;
+      margin-bottom: 0;
     }
     .cardSubSubtitles {
       margin-top: 0px;
     }
     .cardTitles {
       text-align: center;
-      margin: auto;
-      margin-top: calc(auto - 20px);
-      .button {
-        width: 250px;
-        height: 50px;
-        border-radius: 10px;
-        font-size: 24px;
-        cursor: pointer;
-        background-color: rgb(71, 248, 71);
-        border: 1px solid white;
-        box-shadow: 0px 0px 7px white;
-        margin-top: 30px;
-        transition: background-color 0.13s ease-in-out;
-        &:hover {
-          background-color: rgb(150, 252, 150);
+      margin-inline: auto;
+      .buttons {
+        margin-top: -15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .heart {
+          color: red;
+          transition: color 0.13s ease-in-out;
+        }
+        .bag {
+          color: rgb(255, 102, 0);
+          transition: color 0.13s ease-in-out;
+        }
+        .button {
+          width: 250px;
+          height: 50px;
+          border-radius: 10px;
+          font-size: 28px;
+          font-weight: 600;
+          cursor: pointer;
+          background-color: $bgColor2;
+          border: 1px solid rgb(155, 155, 155);
+          box-shadow: 0px 0px 7px rgb(158, 158, 158);
+          margin-top: 25px;
+          transition: background-color 0.13s ease-in-out;
+          &:hover {
+            background-color: rgb(255, 217, 192);
+          }
+        }
+        .button2 {
+          background-color: rgb(255, 127, 127);
+          font-size: 28px;
+          height: 82px;
+          &:hover {
+            background-color: rgb(255, 217, 192);
+            .heart {
+              color: rgb(255, 127, 127);
+            }
+          }
         }
       }
       .cardTitle {
@@ -49,7 +78,6 @@
         flex-direction: column;
         justify-content: center;
         .cardSubtitle {
-          margin-right: 10px;
           font-size: 24px;
         }
         .cardPrice {

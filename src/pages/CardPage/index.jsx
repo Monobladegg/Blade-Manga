@@ -4,11 +4,19 @@ import axios from "axios";
 import ContentLoader from "react-content-loader";
 import CardPageSkeleton from "../../Components/Skeleton/CardPageSkeleton";
 
+import { FaHeart } from "react-icons/fa6";
+import { FaBagShopping } from "react-icons/fa6";
+
 import s from "./Card.module.scss";
 import { useParams } from "react-router-dom";
 
+import { AppContext } from "../../App";
+
 export default function Card() {
-  const [item, setItem] = React.useState(1);
+  const { onAddFavorite, favorites, setFavorites, onRemoveFavorite } =
+    React.useContext(AppContext);
+
+  const [item, setItem] = React.useState({});
   const { cartId } = useParams();
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -65,11 +73,28 @@ export default function Card() {
                 <div className={s.cardSubSubtitles}>
                   <h3 className={s.cardTitle}>{item.title}</h3>
                   <div className={s.cardSubtitles}>
-                    <h4 className={s.cardSubtitle}>{item.subtitle}</h4>
-                    <h4 className={s.cardPrice}>{item.price} грн.</h4>
+                    <h4 className={s.cardSubtitle}>
+                      {item.subtitle} {item.price} грн.
+                    </h4>
                   </div>
                 </div>
-                <button className={s.button}>Заказать</button>
+                <div className={s.buttons}>
+                  <button className={`${s.button} ${s.button1}`}>
+                    Заказать <FaBagShopping className={s.bag} />
+                  </button>
+                  <button
+                    onClick={() => onAddFavorite(item)}
+                    className={`${s.button} ${s.button2}`}
+                  >
+                    Добавить в закладки <FaHeart className={s.heart} />
+                  </button>
+                  <button
+                    onClick={() => onRemoveFavorite(item)}
+                    className={`${s.button} ${s.button2}`}
+                  >
+                    Удалить из закладок
+                  </button>
+                </div>
               </section>
             </>
           )}

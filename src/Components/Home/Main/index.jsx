@@ -1,7 +1,7 @@
 import React from "react";
 
-import Cards from "../../Sections/Cards";
-import Search from "../../Sections/Cards/Search";
+import Cards from "../../Sections/CardsHome";
+import Search from "../../Sections/Search";
 
 import s from "./Main.module.scss";
 

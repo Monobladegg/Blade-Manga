@@ -2,4 +2,14 @@
 
 .main {
   @include main();
+  .h1 {
+    margin-inline: auto;
+  }
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px;
+    padding: 30px;
+  }
 }

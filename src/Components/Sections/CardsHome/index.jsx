@@ -2,11 +2,11 @@ import React from "react";
 import { AppContext } from "../../../App";
 import HomePageSkeleton from "../../Skeleton/HomePageSkeleton";
 
-import s from "./Cards.module.scss";
+import s from "./CardsHome.module.scss";
 
-import Card from "./Card";
+import Card from "../Card";
 
-export default function Main() {
+export default function CardsHome() {
   const { filtredItems, isLoading } = React.useContext(AppContext);
 
   return (

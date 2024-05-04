@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Card(props) {
   return (
     <main className={s.card}>
-      <Link to={`/Monobladegg/${props.id}`}>
+      <Link to={`/Monobladegg/${props.parentId}`}>
         <img
           src={props.img}
           className={s.cardImg}

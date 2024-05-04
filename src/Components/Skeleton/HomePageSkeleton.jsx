@@ -3,7 +3,7 @@ import ContentLoader from "react-content-loader"
 
 const colors = {
   bgColor1: "#FFD3AC",
-  bgColor2: "#ffc187"
+  bgColor2: "#fff"
 }
 
 const MyLoader = (props) => (

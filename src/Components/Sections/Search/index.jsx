@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./Search.module.scss";
-import { AppContext } from "../../../../App";
+import { AppContext } from "../../../App";
 
 export default function Search() {
 

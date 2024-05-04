@@ -3,8 +3,6 @@ import "../public/assets/Styles/App.scss";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 
-
-
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -12,23 +10,46 @@ import Profile from "./pages/Profile";
 import AuthPage from "./pages/Auth";
 import CardPage from "./pages/CardPage";
 
-
-
-
-
 export const AppContext = React.createContext({});
-
-
 
 export default function App() {
   const [items, setItems] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(true);
+  const [favorites, setFavorites] = React.useState([]);
 
+  async function onRemoveFavorite(item) {
+    try {
+      if (favorites.find((obj) => obj.parentId === item.parentId)) {
+        const id = favorites.find((obj) => obj.parentId === item.parentId).id;
+        await axios.delete(
+          `https://662398043e17a3ac846fa3bf.mockapi.io/favorites/${id}`
+        );
+      } else {
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  async function onAddFavorite(item) {
+    if (favorites.find((obj) => obj.parentId === item.parentId)) {
+    } else {
+      try {
+        const { data } = await axios.post(
+          "https://662398043e17a3ac846fa3bf.mockapi.io/favorites",
+          item
+        );
+        setFavorites([...favorites, data]);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  }
 
   React.useEffect(() => {
     console.log("isLoading", isLoading);
-  }, [isLoading])
+  }, [isLoading]);
 
   React.useEffect(() => {
     async function fetchData() {
@@ -39,7 +60,6 @@ export default function App() {
         );
         setItems(data);
         setIsLoading(false);
-        console.log(data);
       } catch (e) {
         console.log(e);
       }
@@ -52,19 +72,21 @@ export default function App() {
     return item.title.toLowerCase().includes(searchValue.toLowerCase());
   });
 
-
-
-
-
   return (
     <AppContext.Provider
-      value={{ items, searchValue, setSearchValue, filtredItems, isLoading }}
+      value={{
+        items,
+        searchValue,
+        setSearchValue,
+        filtredItems,
+        isLoading,
+        onAddFavorite,
+        favorites,
+        setFavorites,
+        onRemoveFavorite,
+      }}
     >
-
-
-
-
-      <Routes >
+      <Routes>
         <Route path="/Monobladegg/" element={<Home />} />
         <Route path="/Monobladegg/favorites" element={<Favorites />} />
         <Route path="/Monobladegg/profile" element={<Profile />} />
@@ -83,11 +105,6 @@ export default function App() {
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-
-
-
-
-
     </AppContext.Provider>
   );
 }
