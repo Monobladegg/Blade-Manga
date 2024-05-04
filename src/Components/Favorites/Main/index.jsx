@@ -2,7 +2,7 @@ import React from "react";
 import { AppContext } from "../../../App";
 import axios from "axios";
 
-import s from "./Favorites.module.scss";
+import s from "./Main.module.scss";
 
 import Card from "../../Sections/Card";
 

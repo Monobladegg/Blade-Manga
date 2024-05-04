@@ -1,15 +1,15 @@
 import React from "react";
 import Header from "../../Components/Header";
-import SignUp from "../../Components/auth/SignUp";
+import Main from "../../Components/Orders/Main";
 
-import s from "./Auth.module.scss";
+import s from "./OrdersPage.module.scss";
 
-export default function Auth() {
+export default function Profile() {
   return (
     <>
       <Header />
       <section className={s.main}>
-        <SignUp />
+        <Main />
       </section>
     </>
   );

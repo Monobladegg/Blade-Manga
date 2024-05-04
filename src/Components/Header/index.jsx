@@ -2,17 +2,17 @@ import React from "react";
 
 import s from "./Header.module.scss";
 
-
 import { Routes, Route, Link } from "react-router-dom";
 
-import NotFoundPage from "/src/pages/NotFoundPage";
-import Favorites from "/src/pages/Favorites";
-import Profile from "/src/pages/Profile/";
-import Home from  "/src/pages/Home";
+import NotFoundPage from "/src/pages/NotFoundPage/";
+import Favorites from "/src/pages/FavoritesPage/";
+import Profile from "/src/pages/ProfilePage/";
+import Home from "/src/pages/HomePage/";
 
 import { FaUser } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { BsBookmarkFill } from "react-icons/bs";
+import { FaCartShopping } from "react-icons/fa6";
 
 export default function Header() {
   return (
@@ -30,25 +30,32 @@ export default function Header() {
       </div>
       <div className={s.right}>
         <Link to="/Monobladegg/favorites">
-        <BsBookmarkFill
-          alt="Закладки"
-          title="Закладки"
-          className={`${s.bsBookmarkFill} ${s.icon}`}
-        />
+          <BsBookmarkFill
+            alt="Закладки"
+            title="Закладки"
+            className={`${s.bsBookmarkFill} ${s.icon}`}
+          />
+        </Link>
+        <Link to="/Monobladegg/orders">
+          <FaCartShopping
+            alt="Заказы"
+            title="Заказы"
+            className={`${s.faCartShopping} ${s.icon}`}
+          />
         </Link>
         <Link to="/Monobladegg/settings">
-        <IoMdSettings
-          alt="Настройки"
-          title="Настройки"
-          className={`${s.ioMdSettings} ${s.icon}`}
-        />
+          <IoMdSettings
+            alt="Настройки"
+            title="Настройки"
+            className={`${s.ioMdSettings} ${s.icon}`}
+          />
         </Link>
         <Link to="/Monobladegg/profile">
-        <FaUser
-          alt="Личный кабинет"
-          title="Личный кабинет"
-          className={`${s.faUser} ${s.icon}`}
-        />
+          <FaUser
+            alt="Личный кабинет"
+            title="Личный кабинет"
+            className={`${s.faUser} ${s.icon}`}
+          />
         </Link>
       </div>
       {/* <Routes >

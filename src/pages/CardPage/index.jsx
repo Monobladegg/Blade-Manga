@@ -5,15 +5,15 @@ import ContentLoader from "react-content-loader";
 import CardPageSkeleton from "../../Components/Skeleton/CardPageSkeleton";
 
 import { FaHeart } from "react-icons/fa6";
-import { FaBagShopping } from "react-icons/fa6";
+import { FaCartPlus } from "react-icons/fa6";
 
-import s from "./Card.module.scss";
+import s from "./CardPage.module.scss";
 import { useParams } from "react-router-dom";
 
 import { AppContext } from "../../App";
 
 export default function Card() {
-  const { onAddFavorite, favorites, setFavorites, onRemoveFavorite } =
+  const { onAddFavorite, favorites, setFavorites, onRemoveFavorite, AuthUser } =
     React.useContext(AppContext);
 
   const [item, setItem] = React.useState({});
@@ -79,9 +79,13 @@ export default function Card() {
                   </div>
                 </div>
                 <div className={s.buttons}>
-                  <button className={`${s.button} ${s.button1}`}>
-                    Заказать <FaBagShopping className={s.bag} />
+                  {AuthUser ? (
+                    <button className={`${s.button} ${s.button1}`}>
+                    Заказать <FaCartPlus className={s.cart} />
                   </button>
+                  ) : (
+                    ""
+                  )}
                   <button
                     onClick={() => onAddFavorite(item)}
                     className={`${s.button} ${s.button2}`}

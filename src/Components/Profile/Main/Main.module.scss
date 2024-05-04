@@ -1,5 +1,22 @@
 @import '/public/assets/Styles/index.module.scss';
 
 .main {
-  @include main();
+  height: 500px;
+  display: flex;
+  margin-inline: auto;
+  align-items: center;
+  flex-direction: column;
+
+  .authLink {
+    margin-top: 20px;
+    font-size: 48px;
+    color: rgb(50, 50, 255);
+    &:hover {
+      text-shadow: 1px 1px 5px rgb(148, 148, 148);
+    }
+  }
+  .text {
+    font-size: 40px;
+    margin-top: 50px;
+  }
 }

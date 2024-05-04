@@ -1,0 +1,5 @@
+@import '/public/assets/Styles/index.module.scss';
+
+.main {
+  @include main();
+}

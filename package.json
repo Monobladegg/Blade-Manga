@@ -9,13 +9,12 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "predeploy": "npm run build",
     "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "alias": "^0.0.5",
     "axios": "^1.6.8",
-    "firebase": "^10.11.1",
+    "firebase": "^10.5.2",
     "react": "^18.2.0",
     "react-content-loader": "^7.0.0",
     "react-dom": "^18.2.0",

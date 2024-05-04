@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../../Components/Header";
 import Main from "../../Components/Profile/Main";
 
-import s from "./Profile.module.scss";
+import s from "./ProfilePage.module.scss";
 
 export default function Profile() {
   return (

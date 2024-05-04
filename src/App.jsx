@@ -2,13 +2,18 @@ import React from "react";
 import "../public/assets/Styles/App.scss";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase";
+import { signOut } from "firebase/auth";
 
-import Home from "./pages/Home";
-import Favorites from "./pages/Favorites";
+import HomePage from "./pages/HomePage";
+import FavoritesPage from "./pages/FavoritesPage";
 import NotFoundPage from "./pages/NotFoundPage";
-import Profile from "./pages/Profile";
-import AuthPage from "./pages/Auth";
+import ProfilePage from "./pages/ProfilePage";
+import SignUpPage from "./pages/Auth/SignUpPage";
+import SignInPage from "./pages/Auth/SignInPage";
 import CardPage from "./pages/CardPage";
+import OrdersPage from "./pages/OrdersPage";
 
 export const AppContext = React.createContext({});
 
@@ -17,6 +22,32 @@ export default function App() {
   const [searchValue, setSearchValue] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(true);
   const [favorites, setFavorites] = React.useState([]);
+  const [AuthUser, setAuthUser] = React.useState(null);
+  
+  React.useEffect(() => {
+    const listen = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthUser(user);
+      } else {
+        setAuthUser(null);
+      }
+    });
+
+    return () => {
+      listen();
+    };
+  }, []);
+
+  function userSignOut() {
+    signOut(auth)
+      .then(() => {
+        alert("Вы вышли из аккаунта");
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Вам не удается выйти из аккаунта");
+      })
+  }
 
   async function onRemoveFavorite(item) {
     try {
@@ -32,7 +63,7 @@ export default function App() {
     }
   }
 
-  async function onAddFavorite(item) {
+  var onAddFavorite = async function (item) {
     if (favorites.find((obj) => obj.parentId === item.parentId)) {
     } else {
       try {
@@ -84,13 +115,16 @@ export default function App() {
         favorites,
         setFavorites,
         onRemoveFavorite,
+        AuthUser,
       }}
     >
       <Routes>
-        <Route path="/Monobladegg/" element={<Home />} />
-        <Route path="/Monobladegg/favorites" element={<Favorites />} />
-        <Route path="/Monobladegg/profile" element={<Profile />} />
-        <Route path="/Monobladegg/auth" element={<AuthPage />} />
+        <Route path="/Monobladegg/" element={<HomePage />} />
+        <Route path="/Monobladegg/favorites" element={<FavoritesPage />} />
+        <Route path="/Monobladegg/profile" element={<ProfilePage />} />
+        <Route path="/Monobladegg/signUp" element={<SignUpPage />} />
+        <Route path="/Monobladegg/signIn" element={<SignInPage />} />
+        <Route path="/Monobladegg/orders" element={<OrdersPage />} />
 
         {/* <Route path="/Monobladegg/cart1" element={<CartPage1 />} />
         <Route path="/Monobladegg/cart2" element={<CartPage2 />} />
@@ -102,7 +136,6 @@ export default function App() {
         <Route path="/Monobladegg/cart8" element={<CartPage8 />} /> */}
 
         <Route path="/Monobladegg/:cartId" element={<CardPage />} />
-
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </AppContext.Provider>
