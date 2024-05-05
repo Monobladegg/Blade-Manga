@@ -1,27 +1,24 @@
 @import '/public/assets/Styles/index.module.scss';
 
 .main {
-  height: 600px;
+  .h1 {
+    margin-inline: auto;
+  }
+  .cards {
+    @include main();
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px;
+    padding: 30px;
+  }
+}
+.confirmOrder {
   display: flex;
-  margin-inline: auto;
-  align-items: center;
-  flex-direction: column;
-
-  .authLink {
-    margin-top: 20px;
-    font-size: 48px;
-    color: rgb(50, 50, 255);
-    &:hover {
-      text-shadow: 1px 1px 5px rgb(148, 148, 148);
-    }
-  }
-  .text {
-    font-size: 40px;
-    margin-top: 50px;
-  }
-   
+  @include main();
+  padding-block: 20px;
+  margin-top: 10px;
   .button {
-    margin-top: 20px;
     margin-inline: auto;
     width: 200px;
     font-weight: 600;
@@ -37,4 +34,8 @@
       background-color: rgb(255, 217, 192);
     }
   }
+}
+.h1 {
+  display: flex;
+  justify-content: center;
 }

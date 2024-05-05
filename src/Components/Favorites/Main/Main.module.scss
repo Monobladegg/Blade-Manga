@@ -1,11 +1,11 @@
 @import '/public/assets/Styles/index.module.scss';
 
 .main {
-  @include main();
   .h1 {
     margin-inline: auto;
   }
   .cards {
+    @include main();
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

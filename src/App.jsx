@@ -13,7 +13,9 @@ import ProfilePage from "./pages/ProfilePage";
 import SignUpPage from "./pages/Auth/SignUpPage";
 import SignInPage from "./pages/Auth/SignInPage";
 import CardPage from "./pages/CardPage";
-import OrdersPage from "./pages/OrdersPage";
+import CartPage from "./pages/CartPage";
+import SettingsPage from "./pages/SettingsPage";
+import OrderPage from "./pages/OrderPage";
 
 export const AppContext = React.createContext({});
 
@@ -22,8 +24,9 @@ export default function App() {
   const [searchValue, setSearchValue] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(true);
   const [favorites, setFavorites] = React.useState([]);
+  const [cartItems, setCartItems] = React.useState([]);
   const [AuthUser, setAuthUser] = React.useState(null);
-  
+
   React.useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -63,7 +66,7 @@ export default function App() {
     }
   }
 
-  var onAddFavorite = async function (item) {
+  const onAddFavorite = async function (item) {
     if (favorites.find((obj) => obj.parentId === item.parentId)) {
     } else {
       try {
@@ -72,6 +75,21 @@ export default function App() {
           item
         );
         setFavorites([...favorites, data]);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  }
+
+  async function onAddCart(item) {
+    if (cartItems.find((obj) => obj.parentId === item.parentId)) {
+    } else {
+      try {
+        const { data } = await axios.post(
+          "https://66321a1fc51e14d695635dfb.mockapi.io/cart",
+          item
+        );
+        setCartItems([...cartItems, data]);
       } catch (e) {
         console.log(e);
       }
@@ -116,15 +134,20 @@ export default function App() {
         setFavorites,
         onRemoveFavorite,
         AuthUser,
+        cartItems,
+        setCartItems,
+        onAddCart,
       }}
     >
       <Routes>
         <Route path="/Monobladegg/" element={<HomePage />} />
         <Route path="/Monobladegg/favorites" element={<FavoritesPage />} />
         <Route path="/Monobladegg/profile" element={<ProfilePage />} />
+        <Route path="/Monobladegg/settings" element={<SettingsPage />} />
         <Route path="/Monobladegg/signUp" element={<SignUpPage />} />
         <Route path="/Monobladegg/signIn" element={<SignInPage />} />
-        <Route path="/Monobladegg/orders" element={<OrdersPage />} />
+        <Route path="/Monobladegg/cart" element={<CartPage />} />
+        <Route path="/Monobladegg/order" element={<OrderPage />} />
 
         {/* <Route path="/Monobladegg/cart1" element={<CartPage1 />} />
         <Route path="/Monobladegg/cart2" element={<CartPage2 />} />

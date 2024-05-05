@@ -1,15 +1,14 @@
 import React from "react";
 import Header from "../../Components/Header";
-import Main from "../../Components/Setting/Main";
+import Main from "../../Components/Cart/Main";
 
-import s from "./SettingPage.module.scss";
+import s from "./SettingsPage.module.scss";
 
-export default function Settings() {
+export default function SettingsPage() {
   return (
     <>
       <Header />
       <section className={s.main}>
-        <Main />
       </section>
     </>
   );

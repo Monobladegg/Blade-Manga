@@ -13,7 +13,7 @@ import { useParams } from "react-router-dom";
 import { AppContext } from "../../App";
 
 export default function Card() {
-  const { onAddFavorite, favorites, setFavorites, onRemoveFavorite, AuthUser } =
+  const { onAddFavorite, favorites, setFavorites, onRemoveFavorite, AuthUser, onAddCart } =
     React.useContext(AppContext);
 
   const [item, setItem] = React.useState({});
@@ -80,9 +80,12 @@ export default function Card() {
                 </div>
                 <div className={s.buttons}>
                   {AuthUser ? (
-                    <button className={`${s.button} ${s.button1}`}>
-                    Заказать <FaCartPlus className={s.cart} />
-                  </button>
+                    <button
+                      onClick={() => onAddCart(item)}
+                      className={`${s.button} ${s.button1}`}
+                    >
+                      Add to cart <FaCartPlus className={s.cart} />
+                    </button>
                   ) : (
                     ""
                   )}

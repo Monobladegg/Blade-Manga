@@ -36,7 +36,7 @@ export default function Header() {
             className={`${s.bsBookmarkFill} ${s.icon}`}
           />
         </Link>
-        <Link to="/Monobladegg/orders">
+        <Link to="/Monobladegg/cart">
           <FaCartShopping
             alt="Заказы"
             title="Заказы"

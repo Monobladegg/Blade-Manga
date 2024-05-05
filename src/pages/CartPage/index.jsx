@@ -1,10 +1,10 @@
 import React from "react";
 import Header from "../../Components/Header";
-import Main from "../../Components/Orders/Main";
+import Main from "../../Components/Cart/Main";
 
-import s from "./OrdersPage.module.scss";
+import s from "./CartPage.module.scss";
 
-export default function Profile() {
+export default function Cart() {
   return (
     <>
       <Header />
